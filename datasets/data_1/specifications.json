@@ -1,0 +1,14 @@
+{
+	"target":{
+		"labels":{
+			"Pass Sess 1":["Fail","Pass","Not Done"],
+			"Grade Sess 1":["Low","Medium","High"]
+		},
+		"type":{
+			"Pass Sess 1":["classification"],
+			"Grade Sess 1":["classification"]
+		}
+	}
+}
+
+

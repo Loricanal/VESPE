@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="pb-2 mt-4 mb-2 border-bottom flexh1">
+      <h1>
+      Inspector
+      </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-8 mx-auto">
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupFeatures">Features</label>
+  </div>
+  <select class="custom-select" id="inputGroupFeatures">
+    <option selected>Choose...</option>
+    {% for feat in features_families %}
+        <option value="{{ feat }}">{{ feat }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupTarget">Target</label>
+  </div>
+  <select class="custom-select" id="inputGroupTarget">
+    <option selected>Choose...</option>
+    {% for tar in targets %}
+        <option value="{{ tar }}">{{ tar }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupAlgo">Algorithm</label>
+  </div>
+  <select class="custom-select" id="inputGroupAlgo">
+    <option selected>Choose...</option>
+    {% for al in algos %}
+        <option value="{{ al }}">{{ al }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupClass">Class</label>
+  </div>
+  <select class="custom-select" id="inputGroupClass">
+    <option selected>Choose...</option>
+    {% for cl in classes %}
+        <option value="{{ cl }}">{{ cl }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+  </div>
+    
+</div>
+
+
+
+<div class="row" id="infotable" style="display: none;">
+  <div class="col-md-10 mx-auto tablecontainer" overflow>
+     <table id="jds-example" class="table"></table>
+  </div>
+</div>
+
+
+<div class="row">
+<div class="col-md-6 mx-auto" style="text-align: center;">
+<button id="showStatisticsBtn" type="button" class="btn btn-info" disabled="disabled">
+ Show features importance
+</button>
+</div>
+</div>
+
+<div class="row"> <div id="class" style="display: none;"></div> </div>
+
+<div class="container-fluid" id="infodiv" style="display: none;">
+  <div class="row">
+    <div class="col-md-10 mx-auto" style="text-align: center;">
+      <div> <h2>Features importance</h2> </div> <br>
+      <div id="featureimportance1"> </div> <br>
+      <div id="featureimportance2"> </div> <br>
+      <div id="featureimportance3"> </div> <br>
+      <div> <h2> Decision and force plot </h2> </div> <br>
+      <div id="forceplot"></div> <br>
+      <div id="decisionplot"></div> <br>
+      <div id="students"></div> <br>
+      <div id="forceplotindividual"></div> <br>
+      <div id="decisionplotindividual"></div> <br>
+      <div> <h2> Dependence plot </h2> </div> <br>
+      <div id="featureinput1"></div> <br>
+      <div id="featureinput2"></div> <br>
+      <div id="dependenceplot"> </div> 
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static',filename='app.js') }}"></script>
+<script src="{{ url_for('static',filename='bundle.js') }}"></script>
+<script src="{{ url_for('static',filename='react.js') }}"></script>
+</body>
+</html>

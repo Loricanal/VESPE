@@ -1,0 +1,28 @@
+{
+	"features":{
+		"families":{
+			"labs":["CommitCount#Lab1", "CommitCount#Lab2", "CommitCount#Lab3", "CommitCount#Lab4", "CommitCount#Lab5", "CommitCount#Total", "Failed#Lab1", "Failed#Lab2", "Failed#Lab3", "Failed#Lab4", "Failed#Lab5", "Failed#Total", "Passed#Lab1", "Passed#Lab2", "Passed#Lab3", "Passed#Lab4", "Passed#Lab5", "Passed#Total", "Error#Lab1", "Error#Lab2", "Error#Lab3", "Error#Lab4", "Error#Lab5", "Error#Total", "Done#Lab1 ", "Done#Lab2", "Done#Lab3", "Done#Lab4", "Done#Lab5", "Done#Total ", "Dropout#Lab2", "Dropout#Lab3", "Dropout#Lab4", "Dropout#Lab5", "ActiveDays#Lab1", "ActiveDays#Lab2 ", "ActiveDays#Lab3", "ActiveDays#Lab4", "ActiveDays#Lab5", "ActiveDays#Total", "CommitsPerDay#Lab1", "CommitsPerDay#Lab2", "CommitsPerDay#Lab3", "CommitsPerDay#Lab4", "CommitsPerDay#Lab5", "CommitsPerDay#Total", "CorrectAnswer#Total"],
+			"labs-1":[ "CommitCount#Lab2", "CommitCount#Lab3", "CommitCount#Lab4", "CommitCount#Lab5", "CommitCount#Total",  "Failed#Lab2", "Failed#Lab3", "Failed#Lab4", "Failed#Lab5", "Failed#Total", "Passed#Lab2", "Passed#Lab3", "Passed#Lab4", "Passed#Lab5", "Passed#Total",  "Error#Lab2", "Error#Lab3", "Error#Lab4", "Error#Lab5", "Error#Total",  "Done#Lab2", "Done#Lab3", "Done#Lab4", "Done#Lab5", "Done#Total ", "Dropout#Lab2", "Dropout#Lab3", "Dropout#Lab4", "Dropout#Lab5",  "ActiveDays#Lab2 ", "ActiveDays#Lab3", "ActiveDays#Lab4", "ActiveDays#Lab5", "ActiveDays#Total",  "CommitsPerDay#Lab2", "CommitsPerDay#Lab3", "CommitsPerDay#Lab4", "CommitsPerDay#Lab5", "CommitsPerDay#Total", "CorrectAnswer#Total"]
+		}
+	},
+	"target":{
+		"labels":{
+			"Pass Sess 1":["Fail","Pass","Not Done"],
+			"Grade Sess 1":["Low","Medium","High"],
+			"Pass Sess 0":["Fail","Pass","Not Done"],
+			"Grade Sess 0":["Low","Medium","High"],
+			"Pass":["Fail","Pass","Not Done"],
+			"Grade":["Low","Medium","High"]
+		},
+		"type":{
+			"Pass Sess 1":["classification"],
+			"Grade Sess 1":["classification"],
+			"Pass":["classification"],
+			"Grade":["classification"],
+			"Pass Sess 0":["classification"],
+			"Grade Sess 0":["classification"]
+		}
+	}
+}
+
+

@@ -1,0 +1,18 @@
+{
+	"features":{
+		"families":{
+			"fam1":["Feature 1","Feature 2"],
+			"fam2":["Feature 3","Feature 4"]
+		}
+	},
+	"target":{
+		"labels":{
+			"Target 1":["setosa","versicolor","virginica"],
+			"Target 2":["setosa","other"]
+		},
+		"type":{
+			"Target 1":["classification"],
+			"Target 2":["classification"]
+		}
+	}
+}

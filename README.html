@@ -1,0 +1,260 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>VESPE.md</title><style></style></head><body id="preview">
+<h1 class="code-line" data-line-start=0 data-line-end=1><a id="VESPE_0"></a>VESPE</h1>
+<p class="has-line-data" data-line-start="1" data-line-end="2">The proposed architecture, namely VCS-based Explainable Student performance PrEdictor (VESPE), relies on a Flask (Python-based) application consisting of two main user interfaces, i.e., the input U.I. and output U.I., and of a core engine. The input UI allows end-users to specify (i) the input VCS usage data, (ii) the prediction targets, and (iii) the specification of the algorithm setup. The core engine consists of a set of supervised ML algorithms. The output U.I. provides end-users with visual explanations of the ML outcomes.</p>
+<h2 class="code-line" data-line-start=3 data-line-end=4><a id="Requirements_3"></a>Requirements</h2>
+<p class="has-line-data" data-line-start="4" data-line-end="6">In order to use VESPE, <strong>Python</strong> and the <strong>Pip</strong> installer package must be installed on your machine.<br>
+Then you need to import all requirements and libraries running the following command:</p>
+<pre><code class="has-line-data" data-line-start="7" data-line-end="9">pip install -r requirements.txt
+</code></pre>
+<h2 class="code-line" data-line-start=9 data-line-end=10><a id="Input_files_9"></a>Input files</h2>
+<h4 class="code-line" data-line-start=12 data-line-end=13><a id="Data_12"></a>Data</h4>
+<p class="has-line-data" data-line-start="14" data-line-end="15">The data file is written in CSV format. The columns represent the features names. Data values must be numeric.</p>
+<p class="has-line-data" data-line-start="16" data-line-end="17">A sample file used for classification is reported below.</p>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Feature 1</th>
+<th>Feature 2</th>
+<th>Feature 3</th>
+<th>Feature 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.1</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>4.9</td>
+<td>3.0</td>
+<td>1.4</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>4.7</td>
+<td>3.2</td>
+<td>1.3</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>4.6</td>
+<td>3.1</td>
+<td>1.5</td>
+<td>0.2</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="24" data-line-end="25">A sample file used for regression is reported below.</p>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.0380759064334241</td>
+<td>0.0506801187398187</td>
+<td>0.0616962065186885</td>
+</tr>
+<tr>
+<td>-0.00188201652779104</td>
+<td>-0.044641636506989</td>
+<td>-0.0514740612388061</td>
+</tr>
+<tr>
+<td>0.0852989062966783</td>
+<td>0.0506801187398187</td>
+<td>0.0444512133365941</td>
+</tr>
+<tr>
+<td>-0.0890629393522603</td>
+<td>-0.044641636506989</td>
+<td>-0.0115950145052127</td>
+</tr>
+</tbody>
+</table>
+<h4 class="code-line" data-line-start=33 data-line-end=34><a id="Target_33"></a>Target</h4>
+<p class="has-line-data" data-line-start="35" data-line-end="36">The target file is written in CSV format. The columns represent the target names. Data values must be numeric.</p>
+<p class="has-line-data" data-line-start="37" data-line-end="38">A sample file used for classification is reported below.</p>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Target 1</th>
+<th>Target 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="50" data-line-end="51">A sample file used for regression is reported below.</p>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>151.0</td>
+</tr>
+<tr>
+<td>75.0</td>
+</tr>
+<tr>
+<td>141.0</td>
+</tr>
+<tr>
+<td>206.0</td>
+</tr>
+<tr>
+<td>135.0</td>
+</tr>
+<tr>
+<td>97.0</td>
+</tr>
+<tr>
+<td>138.0</td>
+</tr>
+</tbody>
+</table>
+<h4 class="code-line" data-line-start=61 data-line-end=62><a id="Specifications_61"></a>Specifications</h4>
+<p class="has-line-data" data-line-start="62" data-line-end="63">The specifications file is written in JSON format.</p>
+<pre><code class="has-line-data" data-line-start="65" data-line-end="81" class="language-json">{
+    "features":{
+        "families":{
+            ...
+        }
+    },
+    "target":{
+        "type":{
+            ...
+        },
+        "labels":{
+            ...
+        }
+    }
+}
+</code></pre>
+<p class="has-line-data" data-line-start="82" data-line-end="84">The core engine computes a model using all features by default; in addition a model for each set of features specified in <code>families</code> is computed.<br>
+<code>type</code> allows you to define whether the targets should be used for classification or regression. In the first case, you can specify the label for each of the numerical targets values using <code>labels</code>.</p>
+<p class="has-line-data" data-line-start="85" data-line-end="86">A sample file used for classification is reported below.</p>
+<pre><code class="has-line-data" data-line-start="87" data-line-end="103" class="language-json">{
+    "<span class="hljs-attribute">features</span>":<span class="hljs-value">{
+        "<span class="hljs-attribute">families</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">fam1</span>":<span class="hljs-value">[<span class="hljs-string">"Feature 1"</span>,<span class="hljs-string">"Feature 2"</span>]</span>,
+            "<span class="hljs-attribute">fam2</span>":<span class="hljs-value">[<span class="hljs-string">"Feature 3"</span>,<span class="hljs-string">"Feature 4"</span>]
+        </span>}
+    </span>}</span>,
+    "<span class="hljs-attribute">target</span>":<span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"classification"</span></span>,
+        "<span class="hljs-attribute">labels</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">Target 1</span>":<span class="hljs-value">[<span class="hljs-string">"setosa"</span>,<span class="hljs-string">"versicolor"</span>,<span class="hljs-string">"virginica"</span>]</span>,
+            "<span class="hljs-attribute">Target 2</span>":<span class="hljs-value">[<span class="hljs-string">"setosa"</span>,<span class="hljs-string">"other"</span>]
+        </span>}
+    </span>}
+</span>}
+</code></pre>
+<p class="has-line-data" data-line-start="104" data-line-end="105">A sample file used for regression is reported below.</p>
+<pre><code class="has-line-data" data-line-start="107" data-line-end="119" class="language-json">{
+    "<span class="hljs-attribute">features</span>":<span class="hljs-value">{
+        "<span class="hljs-attribute">families</span>":<span class="hljs-value">{
+            "<span class="hljs-attribute">t1</span>":<span class="hljs-value">[<span class="hljs-string">"1"</span>,<span class="hljs-string">"2"</span>,<span class="hljs-string">"3"</span>,<span class="hljs-string">"4"</span>,<span class="hljs-string">"5"</span>]</span>,
+            "<span class="hljs-attribute">t2</span>":<span class="hljs-value">[<span class="hljs-string">"6"</span>,<span class="hljs-string">"7"</span>,<span class="hljs-string">"8"</span>,<span class="hljs-string">"9"</span>]
+        </span>}
+    </span>}</span>,
+    "<span class="hljs-attribute">target</span>":<span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>":<span class="hljs-value"><span class="hljs-string">"regression"</span>
+    </span>}
+</span>}
+</code></pre>
+<h2 class="code-line" data-line-start=120 data-line-end=121><a id="Launch_core_engine_120"></a>Launch core engine</h2>
+<h4 class="code-line" data-line-start=121 data-line-end=122><a id="Manual_startup_121"></a>Manual start-up</h4>
+<p class="has-line-data" data-line-start="122" data-line-end="124">Before running algorithms you have to pferform the following steps: open <strong>datasets</strong> folder, reate a new sub-folder related to the new dataset (e.g. <em>dataset 1</em>) and moving the input files inside.<br>
+The input files must be respectively called <em>data.csv</em> and <em>target.csv</em>.</p>
+<pre><code class="has-line-data" data-line-start="125" data-line-end="138">VESPE
+│   README.md
+│   compute_Models_Scores.py
+|   compute_ShapModels.py
+│   ...
+└───datasets
+│   │
+│   └───dataset 
+│       │   data.csv
+│       │   target.csv
+│       │   ...
+...
+</code></pre>
+<p class="has-line-data" data-line-start="139" data-line-end="140">The VESPE engine automatically splits train and test automatically. If you want to do it manually, you have to create two files for input data (<em>data_train.csv</em> and <em>data_test.csv</em>) rather than <em>data.csv</em> and two files for target (<em>target_train.csv</em> and <em>target_test.csv</em>).</p>
+<pre><code class="has-line-data" data-line-start="141" data-line-end="154">VESPE
+│   README.md
+│   compute_Models_Scores.py
+|   compute_ShapModels.py
+│   ...
+└───datasets
+│   │
+│   └───DATASETNAME
+│       │   data.csv
+│       │   target.csv
+│       │   ...
+...
+</code></pre>
+<h6 class="code-line" data-line-start=155 data-line-end=156><a id="Training_ML_models_155"></a>Training ML models</h6>
+<p class="has-line-data" data-line-start="156" data-line-end="157">The bash command below allows you to launch the calculation of machine learning models.</p>
+<pre><code class="has-line-data" data-line-start="158" data-line-end="160">python3 compute_Models_Scores.py DATASETNAME
+</code></pre>
+<h6 class="code-line" data-line-start=161 data-line-end=162><a id="Training_SHAP_models_161"></a>Training SHAP models</h6>
+<p class="has-line-data" data-line-start="162" data-line-end="163">The bash command below allows you to launch the calculation of SHAP models.</p>
+<pre><code class="has-line-data" data-line-start="164" data-line-end="166">python3 compute_ShapModels.py &lt;DATASET NAME&gt;
+</code></pre>
+<h4 class="code-line" data-line-start=166 data-line-end=167><a id="Automatic_startup_with_input_UI_166"></a>Automatic start-up with input UI</h4>
+<p class="has-line-data" data-line-start="167" data-line-end="168">Let’s enter in the folder <strong>flask_app</strong> then use the bash command below to launch the input UI.</p>
+<pre><code class="has-line-data" data-line-start="169" data-line-end="171">python3 upload.py
+</code></pre>
+<p class="has-line-data" data-line-start="171" data-line-end="172">The input UI allows you to upload data, targets and specification file.</p>
+<h2 class="code-line" data-line-start=173 data-line-end=174><a id="Explainability_173"></a>Explainability</h2>
+<h6 class="code-line" data-line-start=175 data-line-end=176><a id="Launch_output_UI_175"></a>Launch output UI</h6>
+<p class="has-line-data" data-line-start="176" data-line-end="177">Let’s enter in the folder <strong>flask_app</strong> then use the bash command below to launch the output UI.</p>
+<pre><code class="has-line-data" data-line-start="178" data-line-end="180">python3 app.py &lt;DATASET NAME&gt;
+</code></pre>
+</body></html>

@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body>
+
+<div class="pb-2 mt-4 mb-2 border-bottom flexh1">
+      <h1>
+      Upload
+      </h1>
+</div>
+
+<div class="col-md-8 mx-auto">
+<form action = "http://localhost:5000/uploader" method = "POST" enctype = "multipart/form-data">
+
+  <div class="form-group">
+    <label for="inputGroupFile01">Upload Data file (csv file format)</label>
+    <input type="file" name="data" class="form-control-file" id="inputGroupFile01" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inputGroupFile02">Upload Target file (csv file format)</label>
+    <input type="file" name="target" class="form-control-file" id="inputGroupFile02" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inputGroupFile03">Upload Specification file (json format)</label>
+    <input type="file" name="specification" class="form-control-file" id="inputGroupFile03" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inputGroupFile04">Email Address</label>
+    <input type="email" name="email" class="form-control" id="inputGroupFile04" aria-describedby="emailHelp" placeholder="Enter email" required>
+    <small id="emailHelp" class="form-text text-muted">The system works only with GMAIL e-mails. The core engine computation may take hours; you will receive an email when it is finished.</small>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static',filename='upload.js') }}"></script>
+<script src="{{ url_for('static',filename='bundle.js') }}"></script>
+<script src="{{ url_for('static',filename='react.js') }}"></script>
+</body>
+</html>
+
