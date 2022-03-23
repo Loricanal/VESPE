@@ -1,8 +1,8 @@
 # VISPE
-The proposed architecture, namely VCS-based Explainable Student performance PrEdictor (VESPE), relies on a Flask (Python-based) application consisting of two main user interfaces, i.e., the input U.I. and output U.I., and of a core engine. The input UI allows end-users to specify (i) the input VCS usage data, (ii) the prediction targets, and (iii) the specification of the algorithm setup. The core engine consists of a set of supervised ML algorithms. The output U.I. provides end-users with visual explanations of the ML outcomes.
+The proposed architecture, namely VCS-based Explainable Student performance PrEdictor (VISPE), relies on a Flask (Python-based) application consisting of two main user interfaces, i.e., the input U.I. and output U.I., and of a core engine. The input UI allows end-users to specify (i) the input VCS usage data, (ii) the prediction targets, and (iii) the specification of the algorithm setup. The core engine consists of a set of supervised ML algorithms. The output U.I. provides end-users with visual explanations of the ML outcomes.
 
 ## Requirements
-In order to use VESPE, **Python** and the **Pip** installer package must be installed on your machine.
+In order to use VISPE, **Python** and the **Pip** installer package must be installed on your machine.
 Then you need to import all requirements and libraries running the following command:
 ```
 pip install -r requirements.txt
@@ -123,7 +123,7 @@ A sample file used for regression is reported below.
 Before running algorithms you have to pferform the following steps: open **datasets** folder, reate a new sub-folder related to the new dataset (e.g. *dataset 1*) and moving the input files inside.
 The input files must be respectively called *data.csv* and *target.csv*. 
 ```
-VESPE
+VISPE
 │   README.md
 │   compute_Models_Scores.py
 |   compute_ShapModels.py
@@ -137,9 +137,9 @@ VESPE
 ...
 ```
 
-The VESPE engine automatically splits train and test automatically. If you want to do it manually, you have to create two files for input data (*data_train.csv* and *data_test.csv*) rather than *data.csv* and two files for target (*target_train.csv* and *target_test.csv*).
+The VISPE engine automatically splits train and test automatically. If you want to do it manually, you have to create two files for input data (*data_train.csv* and *data_test.csv*) rather than *data.csv* and two files for target (*target_train.csv* and *target_test.csv*).
 ```
-VESPE
+VISPE
 │   README.md
 │   compute_Models_Scores.py
 |   compute_ShapModels.py
