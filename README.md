@@ -1,4 +1,4 @@
-# VISPE
+# VESPE
 The proposed architecture, namely VCS-based Explainable Student performance PrEdictor (VISPE), relies on a Flask (Python-based) application consisting of two main user interfaces, i.e., the input U.I. and output U.I., and of a core engine. The input UI allows end-users to specify (i) the input VCS usage data, (ii) the prediction targets, and (iii) the specification of the algorithm setup. The core engine consists of a set of supervised ML algorithms. The output U.I. provides end-users with visual explanations of the ML outcomes.
 
 ## Requirements
